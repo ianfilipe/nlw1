@@ -21,6 +21,8 @@ function getCities(event) {
     const indexOfSelectedValue = event.target.selectedIndex
     stateInput.value = event.target.options[indexOfSelectedValue].text
 
+    citySelect.innerHTML = `<option value="">Selecione a cidade</option>`
+    citySelect.disabled = true
     fetchTest(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateValue}/municipios`, citySelect)
     citySelect.disabled = false
 }
