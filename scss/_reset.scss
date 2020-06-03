@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0 ;
+}
+
+html {
+    font-family: 'Roboto', sans serif;
+}
+
+body {
+    background-color: #F0F0F5;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $title-color;
+    font-family: 'Ubuntu', sans-serif;
+}
