@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background-color: #F0F0F5;
+  background-color: #f0f0f5;
 }
 
 a {
@@ -213,6 +213,103 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+#modal {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #0e0a14ef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+  width: 100vw;
+}
+
+#modal.hide {
+  display: none;
+}
+
+#modal .content {
+  width: 420px;
+  color: white;
+}
+
+#modal .header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#modal .header a {
+  background-image: url("/assets/x.svg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.01px;
+  height: 20px;
+  width: 20px;
+}
+
+#modal .header h1 {
+  color: white;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+#modal form label {
+  display: block;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 8px;
+}
+
+#modal form .field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#modal form input {
+  background-color: #f0f0f5;
+  border: 0;
+  border-radius: 8px 0px 0px 8px;
+  color: #6c6c80;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 16px;
+  outline: 0;
+  padding: 16px 24px;
+}
+
+#modal form button {
+  background-color: #34CB79;
+  border: 0;
+  border-radius: 0px 8px 8px 0px;
+  cursor: pointer;
+  height: 72px;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+  width: 72px;
+}
+
+#modal form button:hover {
+  background-color: #2fb85e;
+}
+
 #page-create-point {
   margin: 0 auto;
   max-width: 1100px;
@@ -311,7 +408,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #page-create-point form .field input,
 #page-create-point form .field select {
-  background: #F0F0F5;
+  background: #f0f0f5;
   border: 0;
   border-radius: 8px;
   font-size: 16px;
@@ -342,4 +439,171 @@ h1, h2, h3, h4, h5, h6 {
 
 #page-create-point form button:hover {
   background-color: #2fb86e;
+}
+
+#page-create-point form .items-grid {
+  display: -ms-grid;
+  display: grid;
+  gap: 16px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+#page-create-point form .items-grid li {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f5f5f5;
+  border: 2px solid #f5f5f5;
+  border-radius: 8px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+  text-align: center;
+  padding: 32px;
+}
+
+#page-create-point form .items-grid li img,
+#page-create-point form .items-grid li span {
+  pointer-events: none;
+}
+
+#page-create-point form .items-grid li span {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #322153;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 12px;
+}
+
+#page-create-point form .items-grid li.selected {
+  background-color: #e1faec;
+  border: 2px solid #34cb79;
+}
+
+body::after {
+  content: "";
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 260px;
+  z-index: -1;
+}
+
+#page-search-results {
+  margin: 0 auto;
+  max-width: 1100px;
+  width: 90%;
+}
+
+#page-search-results header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 48px;
+}
+
+#page-search-results header a {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #322153;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 700;
+}
+
+#page-search-results header a span {
+  background-image: url("../assets/arrow-left.svg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 24px;
+  margin-right: 16px;
+  width: 20px;
+}
+
+#page-search-results main {
+  margin: 48px;
+}
+
+#page-search-results main h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  margin-bottom: 32px;
+}
+
+#page-search-results main .cards {
+  display: -ms-grid;
+  display: grid;
+  gap: 24px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+#page-search-results main .cards .card img {
+  border-radius: 8px 8px 0 0;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+#page-search-results main .cards .card h1 {
+  color: #322153;
+  font-size: 36px;
+  line-height: 41px;
+  margin: 32px 0 24px;
+}
+
+#page-search-results main .cards .card h3 {
+  color: #34CB79;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 34px;
+  margin: 24px 0;
+}
+
+#page-search-results main .cards .card p {
+  color: #6c6c80;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+#page-search-results main img {
+  height: auto;
+  width: 100%;
+}
+
+@media (max-width: 980px) {
+  #page-search-results main .cards {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }

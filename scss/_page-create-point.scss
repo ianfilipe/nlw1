@@ -73,7 +73,7 @@
 
     & form .field input,
     & form .field select {
-        background: #F0F0F5;
+        background: $input-bgc;
         border: 0;
         border-radius: 8px;
         font-size: 16px;
@@ -101,5 +101,44 @@
         &:hover {
             background-color: #2fb86e;
         }
+    }
+
+    & form .items-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    & form .items-grid li {
+        align-items: center;
+        background-color: #f5f5f5;
+        border: 2px solid #f5f5f5 ;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        list-style: none;
+        text-align: center;
+        padding: 32px;
+
+        & img,
+        & span {
+            pointer-events: none;
+        }
+
+    }
+
+    & form .items-grid li span {
+        align-items: center;
+        color: $title-color;
+        display: flex;
+        flex: 1;
+        margin-top: 12px;
+    }
+
+    & form .items-grid li.selected {
+        background-color: #e1faec;
+        border: 2px solid #34cb79;
     }
 }
