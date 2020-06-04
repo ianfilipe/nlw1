@@ -42,13 +42,22 @@
         border: 0;
         margin-top: 64px;
     }
-
+    
     & form legend {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
         margin-bottom: 40px;
-    }
+        width: 100%;
 
-    & form h2 {
-        font-size: 24px;
+        & h2 {
+            font-size: 24px;
+        }
+
+        & span {
+            font-size: 14px;
+            color: $title-color;
+        }
     }
 
     & form .field-group {
@@ -140,5 +149,18 @@
     & form .items-grid li.selected {
         background-color: #e1faec;
         border: 2px solid #34cb79;
+    }
+}
+
+@media (max-width: 900px) {
+    #page-create-point {
+
+        & .field-group {
+            flex-direction: column;
+
+            & .field + .field {
+                margin-left: 0;
+            }
+        }
     }
 }

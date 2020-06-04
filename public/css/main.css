@@ -370,11 +370,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #page-create-point form legend {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-bottom: 40px;
+  width: 100%;
 }
 
-#page-create-point form h2 {
+#page-create-point form legend h2 {
   font-size: 24px;
+}
+
+#page-create-point form legend span {
+  font-size: 14px;
+  color: #322153;
 }
 
 #page-create-point form .field-group {
@@ -496,7 +511,25 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid #34cb79;
 }
 
-body::after {
+@media (max-width: 900px) {
+  #page-create-point .field-group {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #page-create-point .field-group .field + .field {
+    margin-left: 0;
+  }
+}
+
+#page-search-results {
+  margin: 0 auto;
+  max-width: 1100px;
+  width: 90%;
+}
+
+#page-search-results::after {
   content: "";
   background-color: white;
   bottom: 0;
@@ -505,12 +538,6 @@ body::after {
   right: 0;
   top: 260px;
   z-index: -1;
-}
-
-#page-search-results {
-  margin: 0 auto;
-  max-width: 1100px;
-  width: 90%;
 }
 
 #page-search-results header {
