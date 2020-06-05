@@ -5,12 +5,13 @@
 
     &::after {
         content: "";
-        background-color: white;
+        background-color: $input-bgc;
         bottom: 0;
+        height: 16rem;
         left: 0;
-        position: fixed;
+        position: absolute;
         right: 0;
-        top: 260px;
+        top: 0;
         z-index: -1;
     }
 

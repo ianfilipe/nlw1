@@ -1,9 +1,16 @@
 const express = require("express")
 const server = express()
 
+// pegar o banco de dados
+
+const db = require("./database/db") // posso ou não colocar a extensão do arquivo
+
 // configurar pasta pública
 
 server.use(express.static("public"))
+
+// habilitar uso do req.body
+server.use(express.urlencoded({ extended: true }))
 
 // template engine
 
@@ -25,11 +32,78 @@ server.get("/", (req, res) => {
 })
 
 server.get("/create-point", (req, res) => {
+
+    // req.query: Query strings da nossa url
+    // console.log(req.query)
+
     return res.render("create-point.html")
 })
 
+server.post("/save-point", (req, res) => {
+
+    // req.body: O corpo do nosso formulário
+    // console.log(req.body)
+
+        // 2. inserir dados na tabela
+    const query = `
+        INSERT INTO places (
+            name,
+            image,
+            address,
+            number,
+            state,
+            city,
+            items
+        ) VALUES (?,?,?,?,?,?,?);
+    `
+
+    const values = [
+        req.body.name,
+        req.body.image,
+        req.body.address,
+        req.body.number,
+        req.body.state,
+        req.body.city,
+        req.body.items
+    ]
+
+    function afterInsertData(err) {
+        if(err) {
+            console.log(err)
+            return res.render("create-point.html", { error: true })
+        }
+
+        console.log("Cadastrado com sucesso :D")
+        console.log(this)
+
+        return res.render("create-point.html", { saved: true })
+    }
+
+    db.run(query, values, afterInsertData)
+
+})
+
+
 server.get("/search", (req, res) => {
-    return res.render("search-results.html")
+
+    const search = req.query.search
+
+    if(search == "") {
+        // pesquisa vazia
+        return res.render("search-results.html", { total: 0 })
+    }
+
+
+    db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function(err, rows) {
+        if(err) {
+            return console.log(err)
+        }
+
+        const total = rows.length
+
+        // mostra a página html com os dados do banco de dados
+        return res.render("search-results.html", { places: rows, total : total})
+    })
 })
 
 

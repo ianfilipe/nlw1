@@ -9,6 +9,17 @@
     transition: 400ms;
     width: 100vw;
 
+    &.point-created .content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &.point-created h1 {
+        color: white;
+        margin-top: 32px;
+    }
+
     &.hide {
         display: none;
     }
